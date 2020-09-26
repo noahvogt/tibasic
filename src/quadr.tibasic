@@ -1,0 +1,29 @@
+# this is a program to solve a simple quadratic equation
+# with a (soon) very advanced result presentation
+
+# clear screen
+ClrHome
+
+# get user input
+Input "A= ",A
+Input "B= ",B
+Input "C= ",C
+
+# calculate the solution // todo: 
+(B^2-(4*A*C))->J
+([neg]B+[root]^2(B^2-(4*A*C))/(2*A)->X
+[neg]A->D
+[neg]B->E
+[neg]C->F
+[root]^2(B^2-(4*A*C))->[theta]
+(E-[theta])/(2*A)->M
+(E+[theta])/(2*A)->L
+
+# display the two solutions
+Disp "X1: "
+Disp "X2: "
+Output(4,5,L)
+Output(5,5,M)
+
+# I'll figure out later why I did this 2 years ago
+2*A->A

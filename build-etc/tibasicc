@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# print error message and exit script when no arguments given
+((!$#)) && echo "Error: No filename specified!" && exit 1
+
+# make a temporary directory to run the preprocessor before compiling
+mkdir .preprocessor-temp-dir
+cp "$1" ".preprocessor-temp-dir/$1" 
+sed -i "s/\s*#.*//g; /^$/ d" ".preprocessor-temp-dir/$1"
+
+# run the actual compiler
+wine ~/.winetesting/tibasic-1.4.4/tibasic.exe ".preprocessor-temp-dir/$1" &>/tmp/tibasic-preprocessor.log
+mv .preprocessor-temp-dir/*.8xp .
+
+# remove the temporary directory
+rm -r .preprocessor-temp-dir/
