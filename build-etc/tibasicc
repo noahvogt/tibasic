@@ -6,7 +6,7 @@
 # make a temporary directory to run the preprocessor before compiling
 mkdir .preprocessor-temp-dir
 cp "$1" ".preprocessor-temp-dir/$1" 
-sed -i "s/\s*#.*//g; /^$/ d" ".preprocessor-temp-dir/$1"
+sed -i "s/\s*#.*//g; s/^\s*//g; /^$/ d" ".preprocessor-temp-dir/$1"
 
 # run the actual compiler
 wine ~/.winetesting/tibasic-1.4.4/tibasic.exe ".preprocessor-temp-dir/$1" &>/tmp/tibasic-preprocessor.log

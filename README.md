@@ -12,9 +12,9 @@ There is an unmaintained FOSS *(Free and Open Source Software)* [Project on Sour
 
     wine [path to your .exe]/tibasic.exe [filename]
 
-Note that my .tibasic files contain *comments* and *empty lines* that have to be removed before compiling, because the compiler lacks a preprocessor. You can archive for example using `sed`:
+Note that my .tibasic files contain *comments*, *tabbing* and *empty lines* that have to be removed before compiling, because the compiler lacks a preprocessor. You can archive for example using `sed`:
 
-    sed "s/\s*#.*//g; /^$/ d" [inputfile] > [outputfile]
+    sed "s/\s*#.*//g; s/^\s*//g; /^$/ d" [inputfile] > [outputfile]
 
 I have made a bash script that automates this process in the 'build-etc' directory *(Please note that you have to **manually** change the filepath of the .exe file in the script)* I recommend putting this file in your $PATH so you can *preprocess and compile* using this simple syntax:
 
