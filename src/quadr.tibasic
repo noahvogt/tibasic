@@ -5,9 +5,9 @@
 ClrHome
 
 # get user input
-Input "A= ",A
-Input "B= ",B
-Input "C= ",C
+Input "A = ",A
+Input "B = ",B
+Input "C = ",C
 
 # calculate the solution // todo: 
 (B^2-(4*A*C))->J
@@ -27,3 +27,52 @@ Output(5,5,M)
 
 # I'll figure out later why I did this 2 years ago
 2*A->A
+
+If L=M
+    Then
+    Goto A
+End
+If L>M
+    Then
+    Goto B
+End
+If L<M
+    Then
+    Goto C
+End
+
+Label A
+    Disp L
+    Goto D
+
+Label B
+    L-M->W
+    W/2->W
+    L-W->Y
+    
+    (abs(Y)!=Y)+(int(Y)!=Y)*2+int(log(abs(Y)))+1->G
+    Output(6,1,Y)
+    Output(6,G+2,"+-")
+    Output(6,G+5,W)
+    Disp ""
+
+    Goto D
+
+Label C
+    M-L->W
+    W/2->W
+    M-W->Y
+
+    (abs(Y)!=Y)+(int(Y)!=Y)*2+int(log(abs(Y)))+1->G
+    Output(6,1,Y)
+    Output(6,G+2,"+-")
+    Output(6,G+5,W)
+    Disp ""
+
+    Goto D
+
+Label D
+
+# get length of Y
+#(abs(Y)!=Y)+(int(Y)!=Y)*2+int(log(abs(Y)))+1->G
+#Disp G
