@@ -8,17 +8,9 @@ In short, using Source Code Files makes *editing* and *sharing* easier and bette
 
 ## Compiling
 
-There is an unmaintained FOSS *(Free and Open Source Software)* [Project on Sourceforge](https://sourceforge.net/projects/tibasic/) to compile .tibasic Source Code Files to executable .8xp files. There is only an officially released package for Windows and unfortunately I haven't found (or even made) a GNU/Linux-Port yet. But as far as I have been testing, it worked perfectly in wine:
+I have made my own compiler called [tibasicc](https://github.com/noahvogt/tibasicc) so I can have the ability to use comments in my .tibasic files. It is very easy to install, just follow the instructions in the Readme. You can run the compiler on the command line like this:
 
-    wine [path to your .exe]/tibasic.exe [filename]
-
-Note that my .tibasic files contain *comments*, *tabbing* and *empty lines* that have to be removed before compiling, because the compiler lacks a preprocessor. You can archive for example using `sed`:
-
-    sed "s/\s*#.*//g; s/^\s*//g; /^$/ d" [inputfile] > [outputfile]
-
-I have made a bash script that automates this process in the 'build-etc' directory *(Please note that you have to **manually** change the filepath of the .exe file in the script)* I recommend putting this file in your $PATH so you can *preprocess and compile* using this simple syntax:
-
-    tibasicc [filename]
+    tibasicc [options] filename
 
 ## GNU/Linux Mentions
 
